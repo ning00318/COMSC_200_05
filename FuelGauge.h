@@ -4,10 +4,10 @@
 class FuelGauge
 {
 public:
-    FuelGauge();
-    void setCurrentFuel();
-    int getCurrentFuel();
-    void incrementFuel();
+    FuelGauge(int);
+    void setCurrentFuel(int);
+    int getCurrentFuel() const;
+    void incrementFuel(int);
     void decrementFuel();
 private:
     int fuelNum;
