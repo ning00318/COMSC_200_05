@@ -7,22 +7,25 @@ Odometer::Odometer(int mileage, FuelGauge *fuel)
     : currentMileage(mileage), currentFuel(fuel)
 {
     print();
-    incrementMileage();
 }
 
 void Odometer::incrementMileage()
 {
     // Comment: If the car runs over 999,999 miles, the odometer resets the
     //          current mileage to 0, otherwise, increase 1 mile each time.
-    while (currentMileage < 5)
+    int milesCount = 0;
+    while (currentFuel->getCurrentFuel() > 0 && currentMileage <= 999999)
     {
         currentMileage++;
-        if (currentMileage % 24 == 0)
+        milesCount++;
+        if (milesCount == 24)
+        {
             currentFuel->decrementFuel();
+            milesCount = 0;
+        }
         print();
     }
     currentMileage = 0;
-    currentFuel->decrementFuel();
 }
 
 void Odometer::print() const
