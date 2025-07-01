@@ -5,8 +5,8 @@ class FuelGauge
 {
 public:
     FuelGauge(int);
-    void setCurrentFuel(int);
-    int getCurrentFuel() const;
+    void print() const;
+    // void setCurrentFuel(int);
     void incrementFuel(int);
     void decrementFuel();
 private:

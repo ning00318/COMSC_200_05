@@ -1,13 +1,24 @@
 #include<iostream>
 #include "FuelGauge.h"
+using namespace std;
 
 FuelGauge::FuelGauge(int fuel)
 {
-    setCurrentFuel(fuel);
+    if (fuel < 15)
+        incrementFuel(fuel);
+    else
+        fuelNum = fuel;
+    print();
+}
+
+void FuelGauge::print() const
+{
+    cout << "Fuel level: " << fuelNum <<  " gallons" << endl;
+    cout << "----------------------------" << endl << endl;
 }
 
 // Comment: To know the car's current amount of fuel, in gallons.
-void FuelGauge::setCurrentFuel(int fuel)
+/*void FuelGauge::setCurrentFuel(int fuel)
 {
     // Comment: The car can only hold a maximum of 15 gallons, and when the car isn't full
     //          with the maximum amount initially, invoke incrementFuel() to fill it up.
@@ -16,13 +27,7 @@ void FuelGauge::setCurrentFuel(int fuel)
     else
         fuelNum = fuel;
 }
-
-// Comment: To report the car's current amount of fuel, in gallons.
-int FuelGauge::getCurrentFuel() const
-{
-    return fuelNum;
-}
-
+*/
 void FuelGauge::incrementFuel(int fuelNotFull)
 {
     // Comment: The car will increase 1 gallon of fuel each time
@@ -37,4 +42,8 @@ void FuelGauge::decrementFuel()
     //          the car reach 0 gallon eventually.
     if (fuelNum > 0)
         fuelNum--;
+    else
+    {
+        cout << "END..." << endl;
+    }
 }

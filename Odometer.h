@@ -5,12 +5,12 @@
 class Odometer
 {
 public:
-    Odometer();
-    void setCurrentMileage();
-    int getCurrentMileage();
+    Odometer(int, FuelGauge*);
     void incrementMileage();
+    void print() const;
 private:
-
+    int currentMileage;
+    FuelGauge *currentFuel;
 };
 
 #endif
