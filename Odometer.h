@@ -6,11 +6,11 @@ class Odometer
 {
 public:
     Odometer(int, FuelGauge*);
-    void incrementMileage();
     void print() const;
+    void incrementMileage();
 private:
     int currentMileage;
-    FuelGauge *currentFuel;
+    FuelGauge* currentFuel; // Comment 5: A member variable that is a pointer to a FuelGauge object.
 };
 
 #endif
